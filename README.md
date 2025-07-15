@@ -142,20 +142,21 @@
 
 ## 🔄 End-to-End Workflow
 
-Below is a professional, detailed flowchart illustrating the complete user journey and system interactions:
+Below is a professional, vertical flowchart illustrating the complete user journey and system interactions. Spacing has been increased for clarity, and interactive UI icons are part of the preview interface only—they won’t appear in the static README view.
 
 ```mermaid
-flowchart LR
-  A[User logs in] --> B{Is user new?}
-  B -- Yes --> C[Create new user record in database]
-  B -- No --> D[Load existing user profile]
-  C --> E[Determine user’s internal Elo score or preferred topics]
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 40}}}%%
+flowchart TB
+  A([User logs in]) --> B{Is user new?}
+  B -- "Yes" --> C([Create new user record in database])
+  B -- "No" --> D([Load existing user profile])
+  C --> E([Determine user's internal Elo score or preferred topics])
   D --> E
-  E --> F[Fetch best-suited question from database based on performance]
-  F --> G[BreakdownAgent guides the user through the question]
-  G --> H[User submits code solution]
-  H --> I[EvalAgent evaluates code and FeedbackAgent provides actionable feedback]
-  I --> J[Update user performance metrics and Elo ratings in database]
-  J --> K[Redirect to New Question Page for next exercise]
+  E --> F([Fetch best‑suited question from database based on performance])
+  F --> G([BreakdownAgent guides the user through the question])
+  G --> H([User submits code solution])
+  H --> I([EvalAgent evaluates code and FeedbackAgent provides actionable feedback])
+  I --> J([Update performance metrics and Elo ratings in database])
+  J --> K([Redirect to New Question Page for next exercise])
   K --> E
 ```
